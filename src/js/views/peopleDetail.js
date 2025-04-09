@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import "../../styles/home.css";
 
 export const PeopleDetail = () => {
     const [person, setPerson] = useState(null); // Estado para almacenar los datos de la persona
@@ -65,11 +66,13 @@ export const PeopleDetail = () => {
     }
 
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-12">
+        <div className="detail-container">
+            <div className="detail-content">
+                <div className="detail-image">
+                    <img src={personImageUrl} alt={person.name} />
+                </div>
+                <div className="detail-info">
                     <h1>{person.name}</h1>
-                    <img src={personImageUrl} alt={person.name} className="img-fluid" />
                     <ul>
                         <li><strong>Height:</strong> {person.height}</li>
                         <li><strong>Mass:</strong> {person.mass}</li>
@@ -79,9 +82,7 @@ export const PeopleDetail = () => {
                         <li><strong>Birth Year:</strong> {person.birth_year}</li>
                         <li><strong>Gender:</strong> {person.gender}</li>
                     </ul>
-                    <Link to="/" className="btn btn-primary">
-                        Back to Home
-                    </Link>
+                    <Link to="/" className="btn btn-primary">Back to Home</Link>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import "../../styles/home.css";
 
 export const VehiclesDetail = () => {
     const [vehicle, setVehicle] = useState(null); // Estado para almacenar los datos del vehículo
@@ -65,11 +66,13 @@ export const VehiclesDetail = () => {
     }
 
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-12">
+        <div className="detail-container">
+            <div className="detail-content">
+                <div className="detail-image">
+                    <img src={vehicleImageUrl} alt={vehicle.name} />
+                </div>
+                <div className="detail-info">
                     <h1>{vehicle.name}</h1>
-                    <img src={vehicleImageUrl} alt={vehicle.name} className="img-fluid" />
                     <ul>
                         <li><strong>Model:</strong> {vehicle.model}</li>
                         <li><strong>Manufacturer:</strong> {vehicle.manufacturer}</li>
@@ -81,11 +84,9 @@ export const VehiclesDetail = () => {
                         <li><strong>Cargo capacity:</strong> {vehicle.cargo_capacity}</li>
                         <li><strong>Consumables:</strong> {vehicle.consumables}</li>
                     </ul>
-                    <Link to="/" className="btn btn-primary">
-                        Back to Home
-                    </Link>
+                    <Link to="/" className="btn btn-primary">Back to Home</Link>
                 </div>
             </div>
         </div>
-    );
+    );    
 };

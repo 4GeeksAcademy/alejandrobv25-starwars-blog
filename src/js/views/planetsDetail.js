@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import "../../styles/home.css";
 
 export const PlanetsDetail = () => {
     const [planet, setPlanet] = useState(null); // Estado para almacenar los datos del planeta
@@ -65,11 +66,13 @@ export const PlanetsDetail = () => {
     }
 
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-12">
+        <div className="detail-container">
+            <div className="detail-content">
+                <div className="detail-image">
+                    <img src={planetImageUrl} alt={planet.name} />
+                </div>
+                <div className="detail-info">
                     <h1>{planet.name}</h1>
-                    <img src={planetImageUrl} alt={planet.name} className="img-fluid" />
                     <ul>
                         <li><strong>Climate:</strong> {planet.climate}</li>
                         <li><strong>Diameter:</strong> {planet.diameter}</li>
@@ -80,11 +83,9 @@ export const PlanetsDetail = () => {
                         <li><strong>Surface Water:</strong> {planet.surface_water}</li>
                         <li><strong>Terrain:</strong> {planet.terrain}</li>
                     </ul>
-                    <Link to="/" className="btn btn-primary">
-                        Back to Home
-                    </Link>
+                    <Link to="/" className="btn btn-primary">Back to Home</Link>
                 </div>
             </div>
         </div>
-    );
+    );    
 };
